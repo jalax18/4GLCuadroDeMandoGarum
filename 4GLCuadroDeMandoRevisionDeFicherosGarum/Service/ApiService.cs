@@ -60,6 +60,45 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum.Service
             }
         }
 
+        public async Task<Response> GetficherosGarumCuadrodeMando(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken)
+        {
+            try
+            {
+                //  string requestString = JsonConvert.SerializeObject(request);
+                //   StringContent content = new StringContent(requestString, Encoding.UTF8, "application/json");
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase)
+                };
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
+                string url = $"{servicePrefix}{controller}";
+                HttpResponseMessage response = await client.GetAsync(url);
+                string result = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = result,
+                    };
+                }
+                List<FicheroGarumResponse> ficherosGarumResponse = JsonConvert.DeserializeObject<List<FicheroGarumResponse>>(result);
+                return new Response
+                {
+                    IsSuccess = true,
+                    Result = ficherosGarumResponse
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message
+                };
+            }
+        }
         public async Task<Response> GetautomatEstacion(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken)
         {
             try

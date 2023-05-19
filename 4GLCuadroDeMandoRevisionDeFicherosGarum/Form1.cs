@@ -32,7 +32,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
         private WebClient webClient;
         private string ficherodescarga;
         private int FicheroVersionDownload;
-
+        private List<FicheroGarumResponse> ficherosResponse;
 
         public Form1()
         {
@@ -146,21 +146,21 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             if (string.IsNullOrEmpty(TxtToken.Text))
             {
                 ObtenerToken();
-                ObtenerAutomatEstacion();
+                ObtenerFicherosGarumEstacion();
             }
             else
             {
-                ObtenerAutomatEstacion();
+                ObtenerFicherosGarumEstacion();
             }
 
         }
 
-        private async Task ObtenerAutomatEstacion()
+        private async Task ObtenerFicherosGarumEstacion()
         {
             try
             {
 
-                Respuesta = await Servicio.GetautomatEstacion(urlApi, "/api", "/getautomatestacion/", "bearer", tokenAPI);
+                Respuesta = await Servicio.GetficherosGarumCuadrodeMando(urlApi, "/api", "/getficherosGarumCuadrodeMando/", "bearer", tokenAPI);
 
                 if (!Respuesta.IsSuccess)
                 {
@@ -172,142 +172,67 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
                 else // si hemos obtenido respuesta
                 {
                     int contadorEstacionesConProblemas = 0;
-                    DateTime fechaLimite = DateTime.Now.AddHours(-1);
+                    DateTime fechaEstudio = DateTime.Now.AddHours(-12);
                     //   DateTime fechaError = DateTime.Now.AddHours(-12);
                     //                    List<ControlAutomatResponse> automaResponses = (List<ControlAutomatResponse>)Respuesta.Result;
-                    automaResponses = (List<ControlAutomatResponse>)Respuesta.Result;
+                    ficherosResponse = (List<FicheroGarumResponse>)Respuesta.Result;
+                    // automaResponses = (List<ControlAutomatResponse>)Respuesta.Result;
 
-                    var resultados1 = automaResponses.GroupBy(e => e.idEstacion)
-                               .Select(g => g.OrderByDescending(e => e.ultimaMedicion).First()).ToList();
+                    var resultados1 = ficherosResponse.OrderBy(e => e.Estacion)
+                              .Where(g => g.Fecha_Estudio > fechaEstudio).ToList();
 
-                    var resultados2 = automaResponses.GroupBy(e => e.idEstacion)
-                               .Select(g => g.OrderByDescending(e => e.ultimaMedicion).First()).Where(r => r.ultimaOperacion < DateTime.Now.AddHours(-1 * r.horasError) || r.externaVenta != 0 || r.mm4 > 10 || r.ultimaMedicion < DateTime.Now.AddHours(-1)).ToList();
-                    int cuantaeessconproblemas = automaResponses.GroupBy(e => e.idEstacion)
-                               .Select(g => g.OrderByDescending(e => e.ultimaMedicion).First()).Where(r => r.ultimaOperacion < DateTime.Now.AddHours(-1 * r.horasError) || r.externaVenta != 0 || r.mm4 > 10 || r.ultimaMedicion < DateTime.Now.AddHours(-1)).Count();
 
+                 
                     var resultado1 = from p in resultados1 // todas las eess
-                                     orderby p.horasError
+                                     orderby p.Estacionid,p.Nombre_Fichero
                                      select new
                                      {
-                                         p.ultimaMedicion,
-                                         p.ultimaOperacion,
-                                         p.estacion,
-                                         p.idEstacion,
-                                         p.horasError,
-                                         p.externaVenta,
-                                         p.mm4,
-                                         p.versionApp,
-                                         p.id,
-                                         //    p.producto,
-                                         //    p.litros,
-                                         //    p.precio,
-                                         //    p.importe,
-                                         //    p.descuento,
-
+                                         p.Fecha_Estudio,
+                                         p.Estacionid,
+                                         p.Nombre_Estacion,
+                                         p.Nombre_Fichero,
+                                         p.TPV,
+                                     
                                      };
+                    DgvFichero.DataSource = resultado1.ToList();
 
-                    var resultado2 = from p in resultados2 // solo las de error
-                                     orderby p.horasError
-                                     select new
-                                     {
-                                         p.ultimaMedicion,
-                                         p.ultimaOperacion,
-                                         p.estacion,
-                                         p.idEstacion,
-                                         p.horasError,
-                                         p.externaVenta,
-                                         p.mm4,
-                                         p.versionApp,
-                                         p.id,
-                                         //    p.producto,
-                                         //    p.litros,
-                                         //    p.precio,
-                                         //    p.importe,
-                                         //    p.descuento,
-
-                                     };
-                    //
-
-
-                    if (!ChkEsConProblemas.Checked)
+                    
+                    foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
                     {
-                        DgvAutomat.DataSource = resultado1.ToList();
-                    }
-                    else
-                    {
-                        DgvAutomat.DataSource = resultado2.ToList();
-                    }
-
-                    //foreach (DataGridViewRow itemFechaUltimaVenta in DgvAutomat.Rows)
-                    //{
-                    //    if (Convert.ToInt32(itemFechaUltimaVenta.Cells[5].Value)>1 || Convert.ToInt32(itemFechaUltimaVenta.Cells[6].Value) > 10)
-                    //    {
-                    //        itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightCoral;
-                    //        contadorEstacionesConProblemas++;
-                    //    }
-                    //    else
-                    //    {
-                    //        itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGreen;
-                    //    }
-
-                    //    // comprobamos si tiene la hora de la celda ultimamedion
-
-                    //}
-
-                    foreach (DataGridViewRow itemFechaUltimaVenta in DgvAutomat.Rows)
-                    {
-                        if (Convert.ToDateTime(itemFechaUltimaVenta.Cells[1].Value.ToString()) < DateTime.Now.AddHours(-1 * (Convert.ToInt32(itemFechaUltimaVenta.Cells[4].Value))) || Convert.ToInt32(itemFechaUltimaVenta.Cells[5].Value) > 1 || Convert.ToInt32(itemFechaUltimaVenta.Cells[6].Value) > 10)
+                        if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
                         {
-                            itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.Orange;
-                            contadorEstacionesConProblemas++;
+                            itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
+                           // contadorEstacionesConProblemas++;
                         }
 
                         else
                         {
-                            itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGreen;
+                            if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
+                            {
+                                itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightCoral;
+                            }
+                            else
+                            {
+                                itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.Orange;
+                            }
+
+                            
                         }
 
                         // comprobamos si tiene la hora de la celda ultimamedion
 
                     }
 
-                    foreach (DataGridViewRow itemFechaUltimaVenta in DgvAutomat.Rows)
-                    {
-                        if (Convert.ToDateTime(itemFechaUltimaVenta.Cells[0].Value.ToString()) < DateTime.Now.AddHours(-1))
-                        {
-                            itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
-
-                        }
-
-
-                        // comprobamos si tiene la hora de la celda ultimamedion
-
-                    }
+                 
 
 
 
-                    foreach (DataGridViewRow itemFechaUltimaVenta in DgvAutomat.Rows)
-                    {
-                        if (Convert.ToInt32(itemFechaUltimaVenta.Cells[5].Value) > 1 || Convert.ToInt32(itemFechaUltimaVenta.Cells[6].Value) > 10)
-                        {
-                            itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightCoral;
-                            contadorEstacionesConProblemas++;
-                        }
-
-                        //else
-                        //{
-                        //    itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGreen;
-                        //}
-
-                        // comprobamos si tiene la hora de la celda ultimamedion
-
-                    }
-                    // estadistica
-                    TxtTotalES.Text = resultado1.Count().ToString();
-                    TxtEsOffline.Text = resultado1.Where(r => r.ultimaMedicion < fechaLimite).Count().ToString(); // Filtrar y contar los registros que cumplen la condición
-                    TxtEsOnline.Text = (Convert.ToInt32(TxtTotalES.Text) - Convert.ToInt32(TxtEsOffline.Text)).ToString();
-                    //                    TxtEsconProblemas.Text = resultado1.Where(r => r.ultimaOperacion < fechaError).Count().ToString(); // Filtrar y contar los registros que cumplen la condición
-                    TxtEsconProblemas.Text = cuantaeessconproblemas.ToString();
+                    //// estadistica
+                    //TxtTotalES.Text = resultado1.Count().ToString();
+                    //TxtEsOffline.Text = resultado1.Where(r => r.ultimaMedicion < fechaLimite).Count().ToString(); // Filtrar y contar los registros que cumplen la condición
+                    //TxtEsOnline.Text = (Convert.ToInt32(TxtTotalES.Text) - Convert.ToInt32(TxtEsOffline.Text)).ToString();
+                    ////                    TxtEsconProblemas.Text = resultado1.Where(r => r.ultimaOperacion < fechaError).Count().ToString(); // Filtrar y contar los registros que cumplen la condición
+                    //TxtEsconProblemas.Text = cuantaeessconproblemas.ToString();
 
                 }
             }
@@ -359,7 +284,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             Escribelog("Datos obtenidos correctamente.");
             Escribelog("Actualizando vistas.");
             Escribelog("Vistas Actualizadas.");
-            ObtenerAutomatEstacion();
+            ObtenerFicherosGarumEstacion();
             TmrConsulta.Enabled = false;
             TmrRefresco.Enabled = true;
         }
@@ -369,11 +294,11 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             if (string.IsNullOrEmpty(TxtToken.Text))
             {
                 ObtenerToken();
-                ObtenerAutomatEstacion();
+                ObtenerFicherosGarumEstacion();
             }
             else
             {
-                ObtenerAutomatEstacion();
+                ObtenerFicherosGarumEstacion();
             }
         }
 
@@ -387,104 +312,51 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
         {
 
 
-            DgvAutomat.DataSource = "";
-            DgvAutomat.DataSource = automaResponses.Where(x => x.estacion.ToLower().Contains(textoabuscar) || x.idEstacion.ToString().Contains(textoabuscar)).ToList();
-            var resultados1 = automaResponses.Where(x => x.estacion.ToLower().Contains(textoabuscar) || x.idEstacion.ToString().Contains(textoabuscar)).GroupBy(e => e.idEstacion)
-                            .Select(g => g.OrderByDescending(e => e.ultimaMedicion).First()).ToList();
+            DgvFichero.DataSource = "";
+            DgvFichero.DataSource = ficherosResponse.Where(x => x.Estacionid.ToLower().Contains(textoabuscar) || x.Nombre_Fichero.ToString().ToLower().Contains(textoabuscar) || x.Nombre_Estacion.ToString().ToLower().Contains(textoabuscar)).ToList();
 
-            var resultados2 = automaResponses.Where(x => x.estacion.ToLower().Contains(textoabuscar) || x.idEstacion.ToString().Contains(textoabuscar)).GroupBy(e => e.idEstacion)
-                       .Select(g => g.OrderByDescending(e => e.ultimaMedicion).First()).Where(r => r.ultimaOperacion < DateTime.Now.AddHours(-1 * r.horasError)).ToList();
-
+            DateTime fechaEstudio = DateTime.Now.AddHours(-12);
+            var resultados1 = ficherosResponse.Where(x => x.Estacionid.ToLower().Contains(textoabuscar) || x.Nombre_Fichero.ToString().ToLower().Contains(textoabuscar) || x.Nombre_Estacion.ToString().ToLower().Contains(textoabuscar));
 
             var resultado1 = from p in resultados1 // todas las eess
-                             orderby p.horasError
+                             orderby p.Estacionid, p.Nombre_Fichero
                              select new
                              {
-                                 p.ultimaMedicion,
-                                 p.ultimaOperacion,
-                                 p.estacion,
-                                 p.idEstacion,
-                                 p.horasError,
-                                 p.externaVenta,
-                                 p.mm4,
-                                 p.versionApp,
-                                 //    p.producto,
-                                 //    p.litros,
-                                 //    p.precio,
-                                 //    p.importe,
-                                 //    p.descuento,
+                                 p.Fecha_Estudio,
+                                 p.Estacionid,
+                                 p.Nombre_Estacion,
+                                 p.Nombre_Fichero,
+                                 p.TPV,
 
                              };
+            DgvFichero.DataSource = resultado1.ToList();
 
-            var resultado2 = from p in resultados2 // solo las de error
-                             orderby p.horasError
-                             select new
-                             {
-                                 p.ultimaMedicion,
-                                 p.ultimaOperacion,
-                                 p.estacion,
-                                 p.idEstacion,
-                                 p.horasError,
-                                 p.externaVenta,
-                                 p.mm4,
-                                 p.versionApp,
-                                 //    p.producto,
-                                 //    p.litros,
-                                 //    p.precio,
-                                 //    p.importe,
-                                 //    p.descuento,
 
-                             };
-            //
-
-            int contadorEstacionesConProblemas = 0;
-            if (!ChkEsConProblemas.Checked)
+            foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
             {
-                DgvAutomat.DataSource = resultado1.ToList();
-            }
-            else
-            {
-                DgvAutomat.DataSource = resultado2.ToList();
-            }
-
-            foreach (DataGridViewRow itemFechaUltimaVenta in DgvAutomat.Rows)
-            {
-                if (Convert.ToDateTime(itemFechaUltimaVenta.Cells[1].Value.ToString()) < DateTime.Now.AddHours(-1 * (Convert.ToInt32(itemFechaUltimaVenta.Cells[4].Value))))
+                if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
                 {
-                    itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightCoral;
-                    contadorEstacionesConProblemas++;
+                    itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
+                    // contadorEstacionesConProblemas++;
                 }
+
                 else
                 {
-                    itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGreen;
+                    if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
+                    {
+                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightCoral;
+                    }
+                    else
+                    {
+                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.Orange;
+                    }
+
+
                 }
 
                 // comprobamos si tiene la hora de la celda ultimamedion
 
             }
-
-            foreach (DataGridViewRow itemFechaUltimaVenta in DgvAutomat.Rows)
-            {
-                if (Convert.ToDateTime(itemFechaUltimaVenta.Cells[0].Value.ToString()) < DateTime.Now.AddHours(-1))
-                {
-                    itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.Orange;
-
-                }
-
-
-                // comprobamos si tiene la hora de la celda ultimamedion
-
-            }
-
-            // estadistica
-            TxtTotalES.Text = resultado1.Count().ToString();
-
-            DateTime fechaLimite = DateTime.Now.AddHours(-1);
-
-            TxtEsOffline.Text = resultado1.Where(r => r.ultimaMedicion < fechaLimite).Count().ToString(); // Filtrar y contar los registros que cumplen la condición
-            TxtEsOnline.Text = (Convert.ToInt32(TxtTotalES.Text) - Convert.ToInt32(TxtEsOffline.Text)).ToString();
-            //                    TxtEsconProblemas.Text = resultado1.Where(r => r.ultimaOperacion < fechaError).Count().ToString(); // Filtrar y contar los registros que cumplen la condición
-            TxtEsconProblemas.Text = contadorEstacionesConProblemas.ToString();
 
 
         }
@@ -718,9 +590,11 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
 
         }
 
-       
-
-      
+        private void TxtBusqueda_TextChanged_1(object sender, EventArgs e)
+        {
+            string textoabuscar = TxtBusqueda.Text.ToLower();
+            BusquedaTotal(textoabuscar);
+        }
     }
 
 

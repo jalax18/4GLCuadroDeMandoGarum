@@ -17,6 +17,10 @@ namespace __4GLCuadroDeMandoRevisionDeFicherosGarum.Service
 
         Task<Response> GetEstacionAsyncToken(string Name, string urlBase, string servicePrefix, string controller, string tokenType, string accessToken, EstacionRequest request);
         Task<Response> GetautomatEstacion(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken);
+        Task<Response> GetficherosGarumCuadrodeMando(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken);
     }
 
 }
+
+
+//getficherosGarumCuadrodeMando

@@ -31,11 +31,9 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label18 = new System.Windows.Forms.Label();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label17 = new System.Windows.Forms.Label();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -76,7 +74,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.label2 = new System.Windows.Forms.Label();
             this.TxtMail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.DgvAutomat = new System.Windows.Forms.DataGridView();
+            this.DgvFichero = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Lblconsulta = new System.Windows.Forms.Label();
             this.rtbSalidaLog = new System.Windows.Forms.RichTextBox();
@@ -86,47 +84,27 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.BtnSalir = new ns1.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.LOGO)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvAutomat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvFichero)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
-            this.label18.Location = new System.Drawing.Point(839, 145);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(56, 13);
-            this.label18.TabIndex = 54;
-            this.label18.Text = "Todo Ok";
-            // 
-            // maskedTextBox4
-            // 
-            this.maskedTextBox4.BackColor = System.Drawing.Color.LightGreen;
-            this.maskedTextBox4.Enabled = false;
-            this.maskedTextBox4.Location = new System.Drawing.Point(818, 141);
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(15, 20);
-            this.maskedTextBox4.TabIndex = 53;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
-            this.label17.Location = new System.Drawing.Point(574, 145);
+            this.label17.Location = new System.Drawing.Point(685, 146);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(239, 13);
+            this.label17.Size = new System.Drawing.Size(220, 13);
             this.label17.TabIndex = 52;
-            this.label17.Text = "Aplicacion Cerrada o no Transmite Datos";
+            this.label17.Text = "Ficheros 4glexport/xadinput tpv2/3/4";
             // 
             // maskedTextBox3
             // 
             this.maskedTextBox3.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.maskedTextBox3.Enabled = false;
-            this.maskedTextBox3.Location = new System.Drawing.Point(553, 141);
+            this.maskedTextBox3.Location = new System.Drawing.Point(664, 143);
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(15, 20);
             this.maskedTextBox3.TabIndex = 51;
@@ -136,19 +114,19 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
-            this.label16.Location = new System.Drawing.Point(278, 145);
+            this.label16.Location = new System.Drawing.Point(409, 146);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(247, 13);
+            this.label16.Size = new System.Drawing.Size(166, 13);
             this.label16.TabIndex = 50;
-            this.label16.Text = "Sin Ventas Desde Las Horas Configuradas";
+            this.label16.Text = "Ficheros en XADInput TPV1";
             // 
             // maskedTextBox2
             // 
             this.maskedTextBox2.BackColor = System.Drawing.Color.Orange;
             this.maskedTextBox2.Enabled = false;
-            this.maskedTextBox2.Location = new System.Drawing.Point(257, 141);
+            this.maskedTextBox2.Location = new System.Drawing.Point(386, 142);
             this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(15, 20);
+            this.maskedTextBox2.Size = new System.Drawing.Size(16, 20);
             this.maskedTextBox2.TabIndex = 49;
             // 
             // label15
@@ -158,9 +136,9 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label15.Location = new System.Drawing.Point(41, 145);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(194, 13);
+            this.label15.Size = new System.Drawing.Size(171, 13);
             this.label15.TabIndex = 48;
-            this.label15.Text = "MM4 o Externas Vtas Pendientes";
+            this.label15.Text = "Ficheros en 4GLExport TPV1";
             // 
             // maskedTextBox1
             // 
@@ -264,8 +242,6 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.maskedTextBox4);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.maskedTextBox3);
             this.groupBox1.Controls.Add(this.label16);
@@ -326,6 +302,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.TxtBusqueda.Name = "TxtBusqueda";
             this.TxtBusqueda.Size = new System.Drawing.Size(254, 21);
             this.TxtBusqueda.TabIndex = 27;
+            this.TxtBusqueda.TextChanged += new System.EventHandler(this.TxtBusqueda_TextChanged_1);
             // 
             // label10
             // 
@@ -523,45 +500,45 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.label3.TabIndex = 11;
             this.label3.Text = "Mail";
             // 
-            // DgvAutomat
+            // DgvFichero
             // 
-            this.DgvAutomat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DgvAutomat.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvAutomat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.DgvAutomat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvAutomat.DefaultCellStyle = dataGridViewCellStyle5;
-            this.DgvAutomat.Location = new System.Drawing.Point(14, 19);
-            this.DgvAutomat.Name = "DgvAutomat";
-            this.DgvAutomat.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvAutomat.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.DgvAutomat.Size = new System.Drawing.Size(893, 284);
-            this.DgvAutomat.TabIndex = 6;
+            this.DgvFichero.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvFichero.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvFichero.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.DgvFichero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvFichero.DefaultCellStyle = dataGridViewCellStyle11;
+            this.DgvFichero.Location = new System.Drawing.Point(14, 19);
+            this.DgvFichero.Name = "DgvFichero";
+            this.DgvFichero.ReadOnly = true;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvFichero.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.DgvFichero.Size = new System.Drawing.Size(893, 284);
+            this.DgvFichero.TabIndex = 6;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.Lblconsulta);
-            this.groupBox2.Controls.Add(this.DgvAutomat);
+            this.groupBox2.Controls.Add(this.DgvFichero);
             this.groupBox2.Location = new System.Drawing.Point(11, 186);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(913, 322);
@@ -591,7 +568,6 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             // TmrRefresco
             // 
-            this.TmrRefresco.Enabled = true;
             this.TmrRefresco.Interval = 10000;
             this.TmrRefresco.Tick += new System.EventHandler(this.TmrRefresco_Tick);
             // 
@@ -679,6 +655,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 702);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.BtnRefrescarDatos);
@@ -687,12 +664,12 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "4GL Cuadro de Mando Revision de Ficheros Garum";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.LOGO)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DgvAutomat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvFichero)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -701,9 +678,6 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.MaskedTextBox maskedTextBox3;
         private System.Windows.Forms.Label label16;
@@ -744,7 +718,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtMail;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView DgvAutomat;
+        private System.Windows.Forms.DataGridView DgvFichero;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label Lblconsulta;
         private System.Windows.Forms.RichTextBox rtbSalidaLog;
