@@ -179,7 +179,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
                     // automaResponses = (List<ControlAutomatResponse>)Respuesta.Result;
 
                     var resultados1 = ficherosResponse.OrderBy(e => e.Estacion)
-                              .Where(g => g.Fecha_Estudio > fechaEstudio).ToList();
+                              .Where(g => g.Fecha_Estudio > fechaEstudio && !g.Nombre_Fichero.ToString().ToLower().Contains("@0@")).ToList();
 
 
                  
@@ -316,7 +316,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             DgvFichero.DataSource = ficherosResponse.Where(x => x.Estacionid.ToLower().Contains(textoabuscar) || x.Nombre_Fichero.ToString().ToLower().Contains(textoabuscar) || x.Nombre_Estacion.ToString().ToLower().Contains(textoabuscar)).ToList();
 
             DateTime fechaEstudio = DateTime.Now.AddHours(-12);
-            var resultados1 = ficherosResponse.Where(x => x.Estacionid.ToLower().Contains(textoabuscar) || x.Nombre_Fichero.ToString().ToLower().Contains(textoabuscar) || x.Nombre_Estacion.ToString().ToLower().Contains(textoabuscar));
+            var resultados1 = ficherosResponse.Where(x =>!x.Nombre_Fichero.ToString().ToLower().Contains("@0@") && ( x.Estacionid.ToLower().Contains(textoabuscar) || x.Nombre_Fichero.ToString().ToLower().Contains(textoabuscar) || x.Nombre_Estacion.ToString().ToLower().Contains(textoabuscar)) );
 
             var resultado1 = from p in resultados1 // todas las eess
                              orderby p.Estacionid, p.Nombre_Fichero
