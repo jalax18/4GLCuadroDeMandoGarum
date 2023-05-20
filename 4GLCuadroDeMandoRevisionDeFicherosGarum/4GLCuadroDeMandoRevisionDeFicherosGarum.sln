@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4GLCuadroDeMandoRevisionDeFicherosGarum", "4GLCuadroDeMandoRevisionDeFicherosGarum.csproj", "{1756A950-AFBF-4C68-98CE-8B15D8CB1395}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4GLActualizadorCuadroDeMandoRevisionDeFicherosGarum", "..\4GLActualizadorCuadroDeMandoRevisionDeFicherosGarum\4GLActualizadorCuadroDeMandoRevisionDeFicherosGarum.csproj", "{22285E43-4918-4E00-A49A-D45F6F95F93F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1756A950-AFBF-4C68-98CE-8B15D8CB1395}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1756A950-AFBF-4C68-98CE-8B15D8CB1395}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1756A950-AFBF-4C68-98CE-8B15D8CB1395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22285E43-4918-4E00-A49A-D45F6F95F93F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22285E43-4918-4E00-A49A-D45F6F95F93F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22285E43-4918-4E00-A49A-D45F6F95F93F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22285E43-4918-4E00-A49A-D45F6F95F93F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
