@@ -31,9 +31,9 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label17 = new System.Windows.Forms.Label();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -82,6 +82,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.rtbSalidaLog = new System.Windows.Forms.RichTextBox();
             this.BtnRefrescarDatos = new ns1.BunifuFlatButton();
             this.BtnSalir = new ns1.BunifuFlatButton();
+            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LOGO)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvFichero)).BeginInit();
@@ -93,7 +94,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label17.Location = new System.Drawing.Point(685, 146);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(220, 13);
@@ -113,7 +114,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label16.Location = new System.Drawing.Point(409, 146);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(166, 13);
@@ -133,8 +134,8 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label15.Location = new System.Drawing.Point(41, 145);
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
+            this.label15.Location = new System.Drawing.Point(44, 146);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(171, 13);
             this.label15.TabIndex = 48;
@@ -146,14 +147,14 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.maskedTextBox1.Enabled = false;
             this.maskedTextBox1.Location = new System.Drawing.Point(20, 141);
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(15, 20);
+            this.maskedTextBox1.Size = new System.Drawing.Size(18, 20);
             this.maskedTextBox1.TabIndex = 47;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label12.Location = new System.Drawing.Point(252, 120);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(107, 13);
@@ -164,7 +165,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label13.Location = new System.Drawing.Point(17, 117);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(34, 13);
@@ -175,7 +176,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label14.Location = new System.Drawing.Point(751, 86);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(61, 13);
@@ -263,7 +264,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtHoraRevVersion
             // 
             this.TxtHoraRevVersion.BackColor = System.Drawing.Color.White;
-            this.TxtHoraRevVersion.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtHoraRevVersion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtHoraRevVersion.BorderFocusColor = System.Drawing.Color.White;
             this.TxtHoraRevVersion.BorderRadius = 10;
             this.TxtHoraRevVersion.BorderSize = 1;
@@ -285,7 +286,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtHora
             // 
             this.TxtHora.BackColor = System.Drawing.Color.White;
-            this.TxtHora.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtHora.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtHora.BorderFocusColor = System.Drawing.Color.White;
             this.TxtHora.BorderRadius = 10;
             this.TxtHora.BorderSize = 1;
@@ -307,7 +308,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtVersion
             // 
             this.TxtVersion.BackColor = System.Drawing.Color.White;
-            this.TxtVersion.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtVersion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtVersion.BorderFocusColor = System.Drawing.Color.White;
             this.TxtVersion.BorderRadius = 10;
             this.TxtVersion.BorderSize = 1;
@@ -329,7 +330,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtBusqueda
             // 
             this.TxtBusqueda.BackColor = System.Drawing.Color.White;
-            this.TxtBusqueda.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtBusqueda.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtBusqueda.BorderFocusColor = System.Drawing.Color.DarkGray;
             this.TxtBusqueda.BorderRadius = 10;
             this.TxtBusqueda.BorderSize = 1;
@@ -352,7 +353,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtEsOffline
             // 
             this.TxtEsOffline.BackColor = System.Drawing.Color.White;
-            this.TxtEsOffline.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtEsOffline.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtEsOffline.BorderFocusColor = System.Drawing.Color.White;
             this.TxtEsOffline.BorderRadius = 10;
             this.TxtEsOffline.BorderSize = 1;
@@ -374,7 +375,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtEsconProblemas
             // 
             this.TxtEsconProblemas.BackColor = System.Drawing.Color.White;
-            this.TxtEsconProblemas.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtEsconProblemas.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtEsconProblemas.BorderFocusColor = System.Drawing.Color.White;
             this.TxtEsconProblemas.BorderRadius = 10;
             this.TxtEsconProblemas.BorderSize = 1;
@@ -396,7 +397,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtEsOnline
             // 
             this.TxtEsOnline.BackColor = System.Drawing.Color.White;
-            this.TxtEsOnline.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtEsOnline.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtEsOnline.BorderFocusColor = System.Drawing.Color.White;
             this.TxtEsOnline.BorderRadius = 10;
             this.TxtEsOnline.BorderSize = 1;
@@ -418,7 +419,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtTotalES
             // 
             this.TxtTotalES.BackColor = System.Drawing.Color.White;
-            this.TxtTotalES.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtTotalES.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtTotalES.BorderFocusColor = System.Drawing.Color.White;
             this.TxtTotalES.BorderRadius = 10;
             this.TxtTotalES.BorderSize = 1;
@@ -440,7 +441,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtToken
             // 
             this.TxtToken.BackColor = System.Drawing.Color.White;
-            this.TxtToken.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtToken.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtToken.BorderFocusColor = System.Drawing.Color.White;
             this.TxtToken.BorderRadius = 10;
             this.TxtToken.BorderSize = 1;
@@ -462,7 +463,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtUsuario
             // 
             this.TxtUsuario.BackColor = System.Drawing.Color.White;
-            this.TxtUsuario.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtUsuario.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtUsuario.BorderFocusColor = System.Drawing.Color.White;
             this.TxtUsuario.BorderRadius = 10;
             this.TxtUsuario.BorderSize = 1;
@@ -484,7 +485,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // Txtpassword
             // 
             this.Txtpassword.BackColor = System.Drawing.Color.White;
-            this.Txtpassword.BorderColor = System.Drawing.Color.DarkGray;
+            this.Txtpassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.Txtpassword.BorderFocusColor = System.Drawing.Color.White;
             this.Txtpassword.BorderRadius = 10;
             this.Txtpassword.BorderSize = 1;
@@ -506,7 +507,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtMail
             // 
             this.TxtMail.BackColor = System.Drawing.Color.White;
-            this.TxtMail.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtMail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtMail.BorderFocusColor = System.Drawing.Color.White;
             this.TxtMail.BorderRadius = 10;
             this.TxtMail.BorderSize = 1;
@@ -528,7 +529,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // TxtUrl2
             // 
             this.TxtUrl2.BackColor = System.Drawing.Color.White;
-            this.TxtUrl2.BorderColor = System.Drawing.Color.DarkGray;
+            this.TxtUrl2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.TxtUrl2.BorderFocusColor = System.Drawing.Color.White;
             this.TxtUrl2.BorderRadius = 10;
             this.TxtUrl2.BorderSize = 1;
@@ -551,7 +552,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label11.Location = new System.Drawing.Point(561, 91);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 13);
@@ -562,7 +563,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label10.Location = new System.Drawing.Point(315, 88);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(46, 13);
@@ -573,7 +574,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.ChkEsConProblemas.AutoSize = true;
             this.ChkEsConProblemas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChkEsConProblemas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ChkEsConProblemas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.ChkEsConProblemas.Location = new System.Drawing.Point(736, 26);
             this.ChkEsConProblemas.Name = "ChkEsConProblemas";
             this.ChkEsConProblemas.Size = new System.Drawing.Size(170, 17);
@@ -585,7 +586,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label9.Location = new System.Drawing.Point(733, 55);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(79, 13);
@@ -596,7 +597,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label8.Location = new System.Drawing.Point(176, 87);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 13);
@@ -607,7 +608,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label7.Location = new System.Drawing.Point(17, 85);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 13);
@@ -618,7 +619,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label6.Location = new System.Drawing.Point(561, 57);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
@@ -629,7 +630,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label1.Location = new System.Drawing.Point(17, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
@@ -640,7 +641,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label5.Location = new System.Drawing.Point(319, 57);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 13);
@@ -651,7 +652,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label4.Location = new System.Drawing.Point(561, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
@@ -662,7 +663,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label2.Location = new System.Drawing.Point(17, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 13);
@@ -673,7 +674,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.label3.Location = new System.Drawing.Point(332, 27);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
@@ -684,39 +685,40 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.DgvFichero.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvFichero.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvFichero.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvFichero.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvFichero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvFichero.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvFichero.DefaultCellStyle = dataGridViewCellStyle2;
             this.DgvFichero.Location = new System.Drawing.Point(14, 19);
             this.DgvFichero.Name = "DgvFichero";
             this.DgvFichero.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvFichero.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.DgvFichero.Size = new System.Drawing.Size(893, 284);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvFichero.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.DgvFichero.Size = new System.Drawing.Size(893, 257);
             this.DgvFichero.TabIndex = 6;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.Lblconsulta);
             this.groupBox2.Controls.Add(this.DgvFichero);
             this.groupBox2.Location = new System.Drawing.Point(11, 186);
@@ -730,7 +732,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.Lblconsulta.AutoSize = true;
             this.Lblconsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lblconsulta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Lblconsulta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.Lblconsulta.Location = new System.Drawing.Point(263, 0);
             this.Lblconsulta.Name = "Lblconsulta";
             this.Lblconsulta.Size = new System.Drawing.Size(417, 25);
@@ -764,9 +766,10 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // BtnRefrescarDatos
             // 
             this.BtnRefrescarDatos.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.BtnRefrescarDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnRefrescarDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.BtnRefrescarDatos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnRefrescarDatos.BorderRadius = 0;
+            this.BtnRefrescarDatos.BorderRadius = 7;
+            this.BtnRefrescarDatos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BtnRefrescarDatos.ButtonText = "RefrescarDatos";
             this.BtnRefrescarDatos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnRefrescarDatos.DisabledColor = System.Drawing.Color.Gray;
@@ -782,10 +785,10 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.BtnRefrescarDatos.IconVisible = true;
             this.BtnRefrescarDatos.IconZoom = 90D;
             this.BtnRefrescarDatos.IsTab = false;
-            this.BtnRefrescarDatos.Location = new System.Drawing.Point(167, 629);
+            this.BtnRefrescarDatos.Location = new System.Drawing.Point(167, 626);
             this.BtnRefrescarDatos.Name = "BtnRefrescarDatos";
-            this.BtnRefrescarDatos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnRefrescarDatos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(164)))));
+            this.BtnRefrescarDatos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
+            this.BtnRefrescarDatos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BtnRefrescarDatos.OnHoverTextColor = System.Drawing.Color.White;
             this.BtnRefrescarDatos.selected = false;
             this.BtnRefrescarDatos.Size = new System.Drawing.Size(241, 48);
@@ -799,9 +802,10 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // BtnSalir
             // 
             this.BtnSalir.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.BtnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BtnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.BtnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnSalir.BorderRadius = 0;
+            this.BtnSalir.BorderRadius = 7;
+            this.BtnSalir.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.BtnSalir.ButtonText = "Salir";
             this.BtnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSalir.DisabledColor = System.Drawing.Color.Gray;
@@ -819,8 +823,8 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.BtnSalir.IsTab = false;
             this.BtnSalir.Location = new System.Drawing.Point(466, 629);
             this.BtnSalir.Name = "BtnSalir";
-            this.BtnSalir.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.BtnSalir.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(164)))));
+            this.BtnSalir.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
+            this.BtnSalir.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.BtnSalir.OnHoverTextColor = System.Drawing.Color.White;
             this.BtnSalir.selected = false;
             this.BtnSalir.Size = new System.Drawing.Size(241, 48);
@@ -830,6 +834,18 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.BtnSalir.Textcolor = System.Drawing.Color.White;
             this.BtnSalir.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
+            this.label18.Location = new System.Drawing.Point(11, 296);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(507, 13);
+            this.label18.TabIndex = 68;
+            this.label18.Text = "El estudio de los ficheros pendientes se realiza todos los dias a las 06:30 de la" +
+    " mañana ";
             // 
             // Form1
             // 
@@ -906,6 +922,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
         private CustomControls.RJControls.RJTextBox TxtHora;
         private CustomControls.RJControls.RJTextBox TxtHoraRevVersion;
         private System.Windows.Forms.RichTextBox rtbSalidaLog;
+        private System.Windows.Forms.Label label18;
     }
 }
 

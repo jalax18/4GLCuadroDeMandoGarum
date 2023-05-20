@@ -2,6 +2,7 @@
 
 
 using _4GLCuadroDeMandoRevisionDeFicherosGarum.Model;
+using System;
 using System.Threading.Tasks;
 
 namespace __4GLCuadroDeMandoRevisionDeFicherosGarum.Service
@@ -18,6 +19,10 @@ namespace __4GLCuadroDeMandoRevisionDeFicherosGarum.Service
         Task<Response> GetEstacionAsyncToken(string Name, string urlBase, string servicePrefix, string controller, string tokenType, string accessToken, EstacionRequest request);
         Task<Response> GetautomatEstacion(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken);
         Task<Response> GetficherosGarumCuadrodeMando(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken);
+
+        Task<Response> GetEstacionAsyncTotal(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken,  DateTime request);
+        Task<Response> GetEstacionAsyncOffLine(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken, string request);
+
     }
 
 }

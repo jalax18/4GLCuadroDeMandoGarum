@@ -68,9 +68,11 @@
     <Compile Include="Model\ControlAutomatPutRequest.cs" />
     <Compile Include="Model\ControlAutomatRequest.cs" />
     <Compile Include="Model\ControlAutomatResponse.cs" />
+    <Compile Include="Model\CuantasEstaciones.cs" />
     <Compile Include="Model\EmailRequest.cs" />
     <Compile Include="Model\EstacionRequest.cs" />
     <Compile Include="Model\EstacionResponse.cs" />
+    <Compile Include="Model\FechaRequest.cs" />
     <Compile Include="Model\FicheroGarumResponse.cs" />
     <Compile Include="Model\IdEstacionRequest.cs" />
     <Compile Include="Model\Response.cs" />

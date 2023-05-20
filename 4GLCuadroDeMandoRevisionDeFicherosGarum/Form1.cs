@@ -24,6 +24,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
     public partial class Form1 : Form
     {
         public ApiService Servicio = new ApiService();
+        private Response RespuestaTotalEStaciones;
         private Response Respuesta;
         private string tokenAPI;
         private string usuarioIdWsOk;
@@ -170,6 +171,21 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
         {
             try
             {
+                FechaRequest fechaRequest = new FechaRequest
+                {
+                    Fecha = DateTime.Now.AddHours(1).ToString()
+                };
+
+                RespuestaTotalEStaciones = await Servicio.GetEstacionAsyncTotal(urlApi, "/api", "/cestacionesoffline/", "bearer", tokenAPI, DateTime.Now.AddHours(1));
+
+                TxtTotalES.Texts = RespuestaTotalEStaciones.Result.ToString();
+
+                RespuestaTotalEStaciones = await Servicio.GetEstacionAsyncTotal(urlApi, "/api", "/cestacionesoffline/", "bearer", tokenAPI, DateTime.Now.AddHours(-2));
+
+                TxtEsOnline.Texts = RespuestaTotalEStaciones.Result.ToString();
+
+
+                TxtEsOffline.Texts = (Convert.ToInt32(TxtTotalES.Texts) - Convert.ToInt32(TxtEsOnline.Texts)).ToString();
 
                 Respuesta = await Servicio.GetficherosGarumCuadrodeMando(urlApi, "/api", "/getficherosGarumCuadrodeMando/", "bearer", tokenAPI);
 
@@ -183,11 +199,18 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
                 else // si hemos obtenido respuesta
                 {
                     int contadorEstacionesConProblemas = 0;
-                    DateTime fechaEstudio = DateTime.Now.AddHours(-12);
-                    //   DateTime fechaError = DateTime.Now.AddHours(-12);
-                    //                    List<ControlAutomatResponse> automaResponses = (List<ControlAutomatResponse>)Respuesta.Result;
+                    DateTime fechaEstudio = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+
                     ficherosResponse = (List<FicheroGarumResponse>)Respuesta.Result;
-                    // automaResponses = (List<ControlAutomatResponse>)Respuesta.Result;
+                    // voy a contar registros de estaciones agrupados por estacion
+
+                    ficherosResponse.Count();
+                    TxtEsconProblemas.Texts = ficherosResponse.Where(g => g.Fecha_Estudio > fechaEstudio && !g.Nombre_Fichero.ToString().ToLower().Contains("@0@")).ToList().GroupBy(e=>e.Nombre_Estacion).Count().ToString();
+
+                    var listadoEStacionesConProblemas = ficherosResponse.Where(g => g.Fecha_Estudio > fechaEstudio && !g.Nombre_Fichero.ToString().ToLower().Contains("@0@")).ToList().GroupBy(e => e.Nombre_Estacion).ToList();
+                    
+
+
 
                     var resultados1 = ficherosResponse.OrderBy(e => e.Estacion)
                               .Where(g => g.Fecha_Estudio > fechaEstudio && !g.Nombre_Fichero.ToString().ToLower().Contains("@0@")).ToList();
@@ -205,9 +228,10 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
                                          p.TPV,
                                      
                                      };
+                  
+                    DgvFichero.DataSource = listadoEStacionesConProblemas;
                     DgvFichero.DataSource = resultado1.ToList();
 
-                    
                     foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
                     {
                         if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
@@ -220,11 +244,11 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
                         {
                             if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
                             {
-                                itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightCoral;
+                                itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#fdccd4");
                             }
                             else
                             {
-                                itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.Orange;
+                                itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ffd971");
                             }
 
                             
@@ -234,16 +258,9 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
 
                     }
 
-                 
+                  
 
 
-
-                    //// estadistica
-                    //TxtTotalES.Text = resultado1.Count().ToString();
-                    //TxtEsOffline.Text = resultado1.Where(r => r.ultimaMedicion < fechaLimite).Count().ToString(); // Filtrar y contar los registros que cumplen la condición
-                    //TxtEsOnline.Text = (Convert.ToInt32(TxtTotalES.Text) - Convert.ToInt32(TxtEsOffline.Text)).ToString();
-                    ////                    TxtEsconProblemas.Text = resultado1.Where(r => r.ultimaOperacion < fechaError).Count().ToString(); // Filtrar y contar los registros que cumplen la condición
-                    //TxtEsconProblemas.Text = cuantaeessconproblemas.ToString();
 
                 }
             }
@@ -252,6 +269,63 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
                 Escribelog("Error al obtener el id estacion " + ex.ToString());
             }
         }
+
+        private void BusquedaTotal(string textoabuscar)
+        {
+
+
+            DgvFichero.DataSource = "";
+            DgvFichero.DataSource = ficherosResponse.Where(x => x.Estacionid.ToLower().Contains(textoabuscar) || x.Nombre_Fichero.ToString().ToLower().Contains(textoabuscar) || x.Nombre_Estacion.ToString().ToLower().Contains(textoabuscar)).ToList();
+
+            DateTime fechaEstudio = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            var resultados1 = ficherosResponse.Where(x => !x.Nombre_Fichero.ToString().ToLower().Contains("@0@") && (x.Estacionid.ToLower().Contains(textoabuscar) || x.Nombre_Fichero.ToString().ToLower().Contains(textoabuscar) || x.Nombre_Estacion.ToString().ToLower().Contains(textoabuscar)));
+
+            var resultado1 = from p in resultados1 // todas las eess
+                             orderby p.Estacionid, p.Nombre_Fichero
+                             select new
+                             {
+                                 p.Fecha_Estudio,
+                                 p.Estacionid,
+                                 p.Nombre_Estacion,
+                                 p.Nombre_Fichero,
+                                 p.TPV,
+
+                             };
+           
+
+
+            DgvFichero.DataSource = resultado1.ToList();
+          
+
+            foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
+            {
+                if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
+                {
+                    itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
+                    // contadorEstacionesConProblemas++;
+                }
+
+                else
+                {
+                    if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
+                    {
+                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#fdccd4");
+                    }
+                    else
+                    {
+                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ffd971");
+                    }
+
+
+                }
+
+                // comprobamos si tiene la hora de la celda ultimamedion
+
+            }
+
+
+        }
+
 
         private void BtnSalir_Click(object sender, EventArgs e)
         {
@@ -331,59 +405,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             BusquedaTotal(textoabuscar);
         }
 
-        private void BusquedaTotal(string textoabuscar)
-        {
-
-
-            DgvFichero.DataSource = "";
-            DgvFichero.DataSource = ficherosResponse.Where(x => x.Estacionid.ToLower().Contains(textoabuscar) || x.Nombre_Fichero.ToString().ToLower().Contains(textoabuscar) || x.Nombre_Estacion.ToString().ToLower().Contains(textoabuscar)).ToList();
-
-            DateTime fechaEstudio = DateTime.Now.AddHours(-12);
-            var resultados1 = ficherosResponse.Where(x =>!x.Nombre_Fichero.ToString().ToLower().Contains("@0@") && ( x.Estacionid.ToLower().Contains(textoabuscar) || x.Nombre_Fichero.ToString().ToLower().Contains(textoabuscar) || x.Nombre_Estacion.ToString().ToLower().Contains(textoabuscar)) );
-
-            var resultado1 = from p in resultados1 // todas las eess
-                             orderby p.Estacionid, p.Nombre_Fichero
-                             select new
-                             {
-                                 p.Fecha_Estudio,
-                                 p.Estacionid,
-                                 p.Nombre_Estacion,
-                                 p.Nombre_Fichero,
-                                 p.TPV,
-
-                             };
-            DgvFichero.DataSource = resultado1.ToList();
-
-
-            foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
-            {
-                if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
-                {
-                    itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
-                    // contadorEstacionesConProblemas++;
-                }
-
-                else
-                {
-                    if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
-                    {
-                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightCoral;
-                    }
-                    else
-                    {
-                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.Orange;
-                    }
-
-
-                }
-
-                // comprobamos si tiene la hora de la celda ultimamedion
-
-            }
-
-
-        }
-
+      
 
       
 
