@@ -35,9 +35,8 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
         private string ficherodescarga;
         private int FicheroVersionDownload;
         private List<FicheroGarumResponse> ficherosResponse;
-
-
-
+        private int modo=0;
+        private int estadoParpadeo=0;
 
         public Form1()
         {
@@ -231,34 +230,35 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
                   
                     DgvFichero.DataSource = listadoEStacionesConProblemas;
                     DgvFichero.DataSource = resultado1.ToList();
+                    refrescaGrid();
 
-                    foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
-                    {
-                        if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
-                        {
-                            itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
-                           // contadorEstacionesConProblemas++;
-                        }
+                    //foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
+                    //{
+                    //    if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
+                    //    {
+                    //        itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
+                    //       // contadorEstacionesConProblemas++;
+                    //    }
 
-                        else
-                        {
-                            if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
-                            {
-                                itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#fdccd4");
-                            }
-                            else
-                            {
-                                itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ffd971");
-                            }
+                    //    else
+                    //    {
+                    //        if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
+                    //        {
+                    //            itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#fdccd4");
+                    //        }
+                    //        else
+                    //        {
+                    //            itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ffd971");
+                    //        }
 
-                            
-                        }
 
-                        // comprobamos si tiene la hora de la celda ultimamedion
+                    //    }
 
-                    }
+                    //    // comprobamos si tiene la hora de la celda ultimamedion
 
-                  
+                    //}
+
+
 
 
 
@@ -295,33 +295,34 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
 
 
             DgvFichero.DataSource = resultado1.ToList();
-          
 
-            foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
-            {
-                if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
-                {
-                    itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
-                    // contadorEstacionesConProblemas++;
-                }
+            refrescaGrid();
 
-                else
-                {
-                    if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
-                    {
-                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#fdccd4");
-                    }
-                    else
-                    {
-                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ffd971");
-                    }
+            //foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
+            //{
+            //    if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
+            //    {
+            //        itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
+            //        // contadorEstacionesConProblemas++;
+            //    }
+
+            //    else
+            //    {
+            //        if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
+            //        {
+            //            itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#fdccd4");
+            //        }
+            //        else
+            //        {
+            //            itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ffd971");
+            //        }
 
 
-                }
+            //    }
 
-                // comprobamos si tiene la hora de la celda ultimamedion
+            //    // comprobamos si tiene la hora de la celda ultimamedion
 
-            }
+            //}
 
 
         }
@@ -719,6 +720,393 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
 
                 }
             
+        }
+
+        private void SwOscuro_Click(object sender, EventArgs e)
+        {
+
+            switch (SwOscuro.Value)
+            {
+                case true:
+                    modo = 1;
+
+                    break;
+                case false:
+                    modo = 0;
+                    break;
+
+                default:
+                    break;
+            }
+            EstablecerModo(modo);
+            refrescaGrid();
+        }
+
+        private void EstablecerModo(int modo)
+        {
+
+            switch (modo)
+            {
+                case 0:
+                    this.BackColor = ColorTranslator.FromHtml("#ffffff");
+                    groupBox1.ForeColor = Color.Black;
+                    groupBox3.ForeColor = Color.Black;
+                    BtnRefrescarDatos.Normalcolor = ColorTranslator.FromHtml("#004AAA");
+                    BtnRefrescarDatos.OnHovercolor = Color.RoyalBlue;
+                    BtnSalir.Normalcolor = ColorTranslator.FromHtml("#004AAA");
+                    BtnSalir.OnHovercolor = Color.RoyalBlue;
+                    // Recorrer todos los controles en el formulario
+                    foreach (Control control in this.groupBox1.Controls)
+                    {
+                        //   MessageBox.Show(control.ToString());
+                        // Verificar si el control es un Label
+
+                        if (control is Label label)
+                        {
+                            // Cambiar el color de fondo del Label
+                            label.ForeColor = ColorTranslator.FromHtml("#004AAA");
+                        }
+
+                        if (control is CheckBox checkBox)
+                        {
+                            // Cambiar el color de fondo del Label
+                            checkBox.ForeColor = ColorTranslator.FromHtml("#004AAA");
+                        }
+
+                        if (control is CustomControls.RJControls.RJTextBox rjcontrol)
+                        {
+                            // Cambiar el color de fondo del Label
+                            // rjcontrol.BackColor = Color.Transparent;
+                            rjcontrol.ForeColor = ColorTranslator.FromHtml("#000000");
+                            rjcontrol.BackColor = ColorTranslator.FromHtml("#ffffff");
+                            rjcontrol.BorderColor = ColorTranslator.FromHtml("#004AAA");
+                        }
+
+
+                    }
+
+                    foreach (Control control in this.groupBox2.Controls)
+                    {
+                        //   MessageBox.Show(control.ToString());
+                        // Verificar si el control es un Label
+                        if (control is DataGrid dataGrid)
+                        {
+                            // Cambiar el color de fondo del Label
+                            dataGrid.ForeColor = Color.Black;
+
+                        }
+
+
+                        if (control is Label label)
+                        {
+                            // Cambiar el color de fondo del Label
+                            label.ForeColor = ColorTranslator.FromHtml("#004AAA");
+                        }
+
+                        if (control is CheckBox checkBox)
+                        {
+                            // Cambiar el color de fondo del Label
+                            checkBox.ForeColor = ColorTranslator.FromHtml("#004AAA");
+                        }
+
+                        if (control is CustomControls.RJControls.RJTextBox rjcontrol)
+                        {
+                            // Cambiar el color de fondo del Label
+                            // rjcontrol.BackColor = Color.Transparent;
+                            rjcontrol.ForeColor = ColorTranslator.FromHtml("#000000");
+                            rjcontrol.BackColor = ColorTranslator.FromHtml("#ffffff");
+                            rjcontrol.BorderColor = ColorTranslator.FromHtml("#004AAA");
+                        }
+
+
+
+                    }
+
+                    foreach (Control control in this.groupBox3.Controls)
+                    {
+                        //   MessageBox.Show(control.ToString());
+                        // Verificar si el control es un Label
+
+
+                        if (control is Label label)
+                        {
+                            // Cambiar el color de fondo del Label
+                            label.ForeColor = ColorTranslator.FromHtml("#004AAA");
+                        }
+
+                        if (control is CheckBox checkBox)
+                        {
+                            // Cambiar el color de fondo del Label
+                            checkBox.ForeColor = ColorTranslator.FromHtml("#004AAA");
+                        }
+
+                        if (control is RichTextBox richTextBox)
+                        {
+                            // Cambiar el color de fondo del Label
+                            richTextBox.ForeColor = ColorTranslator.FromHtml("#00000");
+                            richTextBox.BackColor = ColorTranslator.FromHtml("#ffffff");
+                        }
+
+                        if (control is CustomControls.RJControls.RJTextBox rjcontrol)
+                        {
+                            // Cambiar el color de fondo del Label
+                            // rjcontrol.BackColor = Color.Transparent;
+                            rjcontrol.ForeColor = Color.Black;
+                            rjcontrol.BackColor = ColorTranslator.FromHtml("#ffffff");
+                            rjcontrol.BorderColor = ColorTranslator.FromHtml("#004AAA");
+                        }
+
+
+
+                    }
+                    break;
+                case 1:
+                    //this.BackColor = ColorTranslator.FromHtml("#250517");
+                    //this.BackColor = ColorTranslator.FromHtml("#302217");
+                    //this.BackColor = ColorTranslator.FromHtml("#342826");
+                    //this.BackColor = ColorTranslator.FromHtml("#292a2c");
+                    this.BackColor = ColorTranslator.FromHtml("#555555");
+                    groupBox1.ForeColor = Color.White;
+                    groupBox3.ForeColor = Color.White;
+                    BtnRefrescarDatos.Normalcolor = Color.Orange;
+                    BtnRefrescarDatos.OnHovercolor = Color.Moccasin;
+                    BtnSalir.Normalcolor = Color.Orange;
+                    BtnSalir.OnHovercolor = Color.Moccasin;
+                    // Recorrer todos los controles en el formulario
+                    foreach (Control control in this.groupBox1.Controls)
+                    {
+                        //   MessageBox.Show(control.ToString());
+                        // Verificar si el control es un Label
+
+                        if (control is Label label)
+                        {
+                            // Cambiar el color de fondo del Label
+                            label.ForeColor = Color.White;
+                            //  label.ForeColor = ColorTranslator.FromHtml("#3f3835");
+                            label.ForeColor = ColorTranslator.FromHtml("#868686");
+                        }
+
+                        if (control is CheckBox checkBox)
+                        {
+                            // Cambiar el color de fondo del Label
+                            checkBox.ForeColor = ColorTranslator.FromHtml("#868686");
+                        }
+
+                        if (control is CustomControls.RJControls.RJTextBox rjcontrol)
+                        {
+                            // Cambiar el color de fondo del Label
+                            // rjcontrol.BackColor = Color.Transparent;
+                            //  rjcontrol.ForeColor = ColorTranslator.FromHtml("#267f79");
+                            rjcontrol.ForeColor = ColorTranslator.FromHtml("#868686");
+                            //rjcontrol.BackColor = ColorTranslator.FromHtml("#696969");
+                            //rjcontrol.BackColor = ColorTranslator.FromHtml("#242424");
+                            rjcontrol.BackColor = ColorTranslator.FromHtml("#444444");
+                            //  rjcontrol.BorderColor = Color.White;
+                            rjcontrol.BorderColor = ColorTranslator.FromHtml("#333333");
+                        }
+
+
+                    }
+
+                    foreach (Control control in this.groupBox2.Controls)
+                    {
+                        //   MessageBox.Show(control.ToString());
+                        // Verificar si el control es un Label
+                        if (control is DataGrid dataGrid)
+                        {
+                            // Cambiar el color de fondo del Label
+                            dataGrid.ForeColor = Color.Black;
+
+                        }
+
+
+                        if (control is Label label)
+                        {
+                            // Cambiar el color de fondo del Label
+                            label.ForeColor = Color.White;
+                        }
+
+                        if (control is CheckBox checkBox)
+                        {
+                            // Cambiar el color de fondo del Label
+                            checkBox.ForeColor = Color.White;
+                        }
+
+                        if (control is CustomControls.RJControls.RJTextBox rjcontrol)
+                        {
+                            // Cambiar el color de fondo del Label
+                            // rjcontrol.BackColor = Color.Transparent;
+                            rjcontrol.ForeColor = Color.White;
+                            rjcontrol.BackColor = ColorTranslator.FromHtml("#696969");
+                            rjcontrol.BorderColor = Color.White;
+                        }
+
+
+
+                    }
+
+                    foreach (Control control in this.groupBox3.Controls)
+                    {
+                        //   MessageBox.Show(control.ToString());
+                        // Verificar si el control es un Label
+
+
+                        if (control is Label label)
+                        {
+                            // Cambiar el color de fondo del Label
+                            label.ForeColor = ColorTranslator.FromHtml("#868686");
+                        }
+
+                        if (control is CheckBox checkBox)
+                        {
+                            // Cambiar el color de fondo del Label
+                            checkBox.ForeColor = ColorTranslator.FromHtml("#868686"); ;
+                        }
+
+                        if (control is RichTextBox richTextBox)
+                        {
+                            // Cambiar el color de fondo del Label
+                            richTextBox.ForeColor = ColorTranslator.FromHtml("#868686");
+                            //  richTextBox.ForeColor = ColorTranslator.FromHtml("#267f79");
+                            richTextBox.BackColor = ColorTranslator.FromHtml("#444444");
+                        }
+
+                        if (control is CustomControls.RJControls.RJTextBox rjcontrol)
+                        {
+                            // Cambiar el color de fondo del Label
+                            // rjcontrol.BackColor = Color.Transparent;
+                            rjcontrol.ForeColor = Color.White;
+                            rjcontrol.BackColor = ColorTranslator.FromHtml("#696969");
+                            rjcontrol.BorderColor = Color.White;
+                        }
+
+
+
+                    }
+
+                    break;
+                default:
+                    break;
+            }
+
+
+        }
+        private void refrescaGrid()
+        {
+            foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
+            {
+                if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
+                {
+                    if (modo == 1)
+                    {
+
+                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#444444");
+                        itemFechaUltimaVenta.DefaultCellStyle.ForeColor = Color.LightGoldenrodYellow;
+                    }
+                    else
+                    {
+                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
+                        itemFechaUltimaVenta.DefaultCellStyle.ForeColor = Color.Black;
+
+                    }
+                }
+
+                else
+                {
+                    if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
+                    {
+                        if (modo == 1)
+                        {
+                            itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#444444");
+                            itemFechaUltimaVenta.DefaultCellStyle.ForeColor = ColorTranslator.FromHtml("#fdccd4");
+                        }
+                        else
+                        {
+                            itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#fdccd4");
+                            itemFechaUltimaVenta.DefaultCellStyle.ForeColor = Color.Black;
+
+
+                        }
+                    }
+                    else
+                    {
+                        if (modo == 1) // naranja
+                        {
+                            // itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ffd971");
+                            itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#444444");
+                            itemFechaUltimaVenta.DefaultCellStyle.ForeColor = Color.Orange;
+                        }
+                        else
+                        {
+                            itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ffd971");
+                            itemFechaUltimaVenta.DefaultCellStyle.ForeColor = Color.Black;
+
+                        }
+                    }
+
+
+                }
+
+                // comprobamos si tiene la hora de la celda ultimamedion
+
+            }
+
+
+
+            DgvFichero.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            if (modo == 1)
+            {
+                DgvFichero.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#444444");
+                DgvFichero.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                DgvFichero.BackgroundColor = ColorTranslator.FromHtml("#444444");
+
+            }
+            else
+            {
+                DgvFichero.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
+                DgvFichero.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
+                DgvFichero.BackgroundColor = ColorTranslator.FromHtml("#ffffff");
+
+
+            }
+
+        }
+
+        private void TmrParpadeo_Tick(object sender, EventArgs e)
+        {
+            if (modo == 1) // pongo gris y blanco
+            {
+                switch (estadoParpadeo)
+                {
+                    case 0:
+                        LblAviso.ForeColor = ColorTranslator.FromHtml("#868686");
+                        estadoParpadeo = 1;
+                        break;
+                    case 1:
+                        LblAviso.ForeColor = Color.White;
+                        estadoParpadeo = 0;
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+            else // pongo azul y rojo
+            {
+                switch (estadoParpadeo)
+                {
+                    case 0:
+                        LblAviso.ForeColor = Color.FromArgb(0, 74, 174);
+                        estadoParpadeo = 1;
+                        break;
+                    case 1:
+                        LblAviso.ForeColor = Color.Red;
+                        estadoParpadeo = 0;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 

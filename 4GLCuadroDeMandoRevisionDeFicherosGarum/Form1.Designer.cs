@@ -31,9 +31,9 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label17 = new System.Windows.Forms.Label();
             this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -49,6 +49,8 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.LOGO = new System.Windows.Forms.PictureBox();
             this.TmrConsulta = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.SwOscuro = new ns1.BunifuSwitch();
             this.TxtHoraRevVersion = new CustomControls.RJControls.RJTextBox();
             this.TxtHora = new CustomControls.RJControls.RJTextBox();
             this.TxtVersion = new CustomControls.RJControls.RJTextBox();
@@ -76,13 +78,15 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.label3 = new System.Windows.Forms.Label();
             this.DgvFichero = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.LblAviso1 = new System.Windows.Forms.Label();
             this.Lblconsulta = new System.Windows.Forms.Label();
             this.TmrRefresco = new System.Windows.Forms.Timer(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rtbSalidaLog = new System.Windows.Forms.RichTextBox();
             this.BtnRefrescarDatos = new ns1.BunifuFlatButton();
             this.BtnSalir = new ns1.BunifuFlatButton();
-            this.label18 = new System.Windows.Forms.Label();
+            this.LblAviso = new System.Windows.Forms.Label();
+            this.TmrParpadeo = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.LOGO)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvFichero)).BeginInit();
@@ -177,7 +181,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
-            this.label14.Location = new System.Drawing.Point(751, 86);
+            this.label14.Location = new System.Drawing.Point(733, 87);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(61, 13);
             this.label14.TabIndex = 42;
@@ -205,7 +209,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // LOGO
             // 
             this.LOGO.Image = ((System.Drawing.Image)(resources.GetObject("LOGO.Image")));
-            this.LOGO.Location = new System.Drawing.Point(747, 629);
+            this.LOGO.Location = new System.Drawing.Point(747, 648);
             this.LOGO.Name = "LOGO";
             this.LOGO.Size = new System.Drawing.Size(170, 42);
             this.LOGO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -219,6 +223,8 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.SwOscuro);
             this.groupBox1.Controls.Add(this.TxtHoraRevVersion);
             this.groupBox1.Controls.Add(this.TxtHora);
             this.groupBox1.Controls.Add(this.TxtVersion);
@@ -260,6 +266,33 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.groupBox1.TabIndex = 188;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configuracion";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
+            this.label19.Location = new System.Drawing.Point(733, 117);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(82, 13);
+            this.label19.TabIndex = 205;
+            this.label19.Text = "Modo Oscuro";
+            // 
+            // SwOscuro
+            // 
+            this.SwOscuro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.SwOscuro.BorderRadius = 10;
+            this.SwOscuro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SwOscuro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.SwOscuro.Location = new System.Drawing.Point(818, 114);
+            this.SwOscuro.Name = "SwOscuro";
+            this.SwOscuro.Oncolor = System.Drawing.Color.DarkGray;
+            this.SwOscuro.Onoffcolor = System.Drawing.Color.DarkGray;
+            this.SwOscuro.Size = new System.Drawing.Size(51, 19);
+            this.SwOscuro.TabIndex = 204;
+            this.SwOscuro.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.SwOscuro.Value = false;
+            this.SwOscuro.Click += new System.EventHandler(this.SwOscuro_Click);
             // 
             // TxtHoraRevVersion
             // 
@@ -314,7 +347,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.TxtVersion.BorderSize = 1;
             this.TxtVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtVersion.Location = new System.Drawing.Point(629, 81);
+            this.TxtVersion.Location = new System.Drawing.Point(627, 81);
             this.TxtVersion.Margin = new System.Windows.Forms.Padding(4);
             this.TxtVersion.Multiline = false;
             this.TxtVersion.Name = "TxtVersion";
@@ -322,7 +355,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.TxtVersion.PasswordChar = false;
             this.TxtVersion.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtVersion.PlaceholderText = "";
-            this.TxtVersion.Size = new System.Drawing.Size(94, 30);
+            this.TxtVersion.Size = new System.Drawing.Size(96, 30);
             this.TxtVersion.TabIndex = 65;
             this.TxtVersion.Texts = "";
             this.TxtVersion.UnderlinedStyle = false;
@@ -685,40 +718,41 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.DgvFichero.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvFichero.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvFichero.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvFichero.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DgvFichero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DgvFichero.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DgvFichero.DefaultCellStyle = dataGridViewCellStyle5;
             this.DgvFichero.Location = new System.Drawing.Point(14, 19);
             this.DgvFichero.Name = "DgvFichero";
             this.DgvFichero.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvFichero.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvFichero.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.DgvFichero.RowHeadersVisible = false;
             this.DgvFichero.Size = new System.Drawing.Size(893, 257);
             this.DgvFichero.TabIndex = 6;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.LblAviso1);
             this.groupBox2.Controls.Add(this.Lblconsulta);
             this.groupBox2.Controls.Add(this.DgvFichero);
             this.groupBox2.Location = new System.Drawing.Point(11, 186);
@@ -727,6 +761,18 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.groupBox2.TabIndex = 189;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Listado de Estaciones";
+            // 
+            // LblAviso1
+            // 
+            this.LblAviso1.AutoSize = true;
+            this.LblAviso1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAviso1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
+            this.LblAviso1.Location = new System.Drawing.Point(11, 296);
+            this.LblAviso1.Name = "LblAviso1";
+            this.LblAviso1.Size = new System.Drawing.Size(507, 13);
+            this.LblAviso1.TabIndex = 68;
+            this.LblAviso1.Text = "El estudio de los ficheros pendientes se realiza todos los dias a las 06:30 de la" +
+    " mañana ";
             // 
             // Lblconsulta
             // 
@@ -750,7 +796,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.groupBox3.Controls.Add(this.rtbSalidaLog);
             this.groupBox3.Location = new System.Drawing.Point(11, 509);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(913, 94);
+            this.groupBox3.Size = new System.Drawing.Size(913, 131);
             this.groupBox3.TabIndex = 190;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Logs";
@@ -759,7 +805,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             // 
             this.rtbSalidaLog.Location = new System.Drawing.Point(14, 15);
             this.rtbSalidaLog.Name = "rtbSalidaLog";
-            this.rtbSalidaLog.Size = new System.Drawing.Size(893, 76);
+            this.rtbSalidaLog.Size = new System.Drawing.Size(893, 79);
             this.rtbSalidaLog.TabIndex = 4;
             this.rtbSalidaLog.Text = "";
             // 
@@ -785,7 +831,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.BtnRefrescarDatos.IconVisible = true;
             this.BtnRefrescarDatos.IconZoom = 90D;
             this.BtnRefrescarDatos.IsTab = false;
-            this.BtnRefrescarDatos.Location = new System.Drawing.Point(167, 626);
+            this.BtnRefrescarDatos.Location = new System.Drawing.Point(167, 648);
             this.BtnRefrescarDatos.Name = "BtnRefrescarDatos";
             this.BtnRefrescarDatos.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.BtnRefrescarDatos.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -821,7 +867,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.BtnSalir.IconVisible = true;
             this.BtnSalir.IconZoom = 90D;
             this.BtnSalir.IsTab = false;
-            this.BtnSalir.Location = new System.Drawing.Point(466, 629);
+            this.BtnSalir.Location = new System.Drawing.Point(466, 649);
             this.BtnSalir.Name = "BtnSalir";
             this.BtnSalir.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
             this.BtnSalir.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -835,17 +881,22 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.BtnSalir.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
-            // label18
+            // LblAviso
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
-            this.label18.Location = new System.Drawing.Point(11, 296);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(507, 13);
-            this.label18.TabIndex = 68;
-            this.label18.Text = "El estudio de los ficheros pendientes se realiza todos los dias a las 06:30 de la" +
-    " mañana ";
+            this.LblAviso.AutoSize = true;
+            this.LblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAviso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(74)))), ((int)(((byte)(174)))));
+            this.LblAviso.Location = new System.Drawing.Point(140, 610);
+            this.LblAviso.Name = "LblAviso";
+            this.LblAviso.Size = new System.Drawing.Size(620, 20);
+            this.LblAviso.TabIndex = 205;
+            this.LblAviso.Text = "Texto de Busqueda relleno.. DETENEMOS REFRESCO DE DATOS DEL API";
+            this.LblAviso.Visible = false;
+            // 
+            // TmrParpadeo
+            // 
+            this.TmrParpadeo.Interval = 500;
+            this.TmrParpadeo.Tick += new System.EventHandler(this.TmrParpadeo_Tick);
             // 
             // Form1
             // 
@@ -853,6 +904,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 702);
+            this.Controls.Add(this.LblAviso);
             this.Controls.Add(this.BtnSalir);
             this.Controls.Add(this.BtnRefrescarDatos);
             this.Controls.Add(this.LOGO);
@@ -870,6 +922,7 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -922,7 +975,11 @@ namespace _4GLCuadroDeMandoRevisionDeFicherosGarum
         private CustomControls.RJControls.RJTextBox TxtHora;
         private CustomControls.RJControls.RJTextBox TxtHoraRevVersion;
         private System.Windows.Forms.RichTextBox rtbSalidaLog;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label LblAviso1;
+        private System.Windows.Forms.Label label19;
+        private ns1.BunifuSwitch SwOscuro;
+        private System.Windows.Forms.Label LblAviso;
+        private System.Windows.Forms.Timer TmrParpadeo;
     }
 }
 
