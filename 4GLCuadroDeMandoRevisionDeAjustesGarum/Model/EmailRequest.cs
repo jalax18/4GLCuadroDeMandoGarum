@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace 4GLCuadroDeMandoGarum.Model
 
+namespace _4GLCuadroDeMandoRevisionDeAjustesGarum.Model
 {
     public class EmailRequest
     {

@@ -4,14 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace _4GLCuadroDeMandoRevisionDeAjustesGarum.Model
 {
-  public class Response
+   public class FechaRequest
     {
-        public bool IsSuccess { get; set; }
-
-        public string Message { get; set; }
-
-        public object Result { get; set; }
+        public string Fecha { get; set; }
     }
 }

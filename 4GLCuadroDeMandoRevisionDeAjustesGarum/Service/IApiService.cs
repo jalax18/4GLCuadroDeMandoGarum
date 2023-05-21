@@ -1,9 +1,13 @@
 ﻿//using ControlIncidencias.Common.Models;
 
-using _4GLCuadroDeMandoAutomat.Model;
+
+using _4GLCuadroDeMandoRevisionDeAjustesGarum.Model;
+
+using System;
 using System.Threading.Tasks;
 
-namespace 4GLCuadroDeMandoGarum.Service
+
+namespace _4GLCuadroDeMandoRevisionDeAjustesGarum.Service
 
 {
     public interface IApiService
@@ -16,6 +20,14 @@ namespace 4GLCuadroDeMandoGarum.Service
 
         Task<Response> GetEstacionAsyncToken(string Name, string urlBase, string servicePrefix, string controller, string tokenType, string accessToken, EstacionRequest request);
         Task<Response> GetautomatEstacion(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken);
+        Task<Response> GetficherosGarumCuadrodeMando(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken);
+
+        Task<Response> GetEstacionAsyncTotal(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken,  DateTime request);
+        Task<Response> GetEstacionAsyncOffLine(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken, string request);
+
     }
 
 }
+
+
+//getficherosGarumCuadrodeMando

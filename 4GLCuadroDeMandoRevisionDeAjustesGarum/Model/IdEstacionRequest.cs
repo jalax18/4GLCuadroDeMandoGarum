@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace 4GLCuadroDeMandoGarum.Model
+
+namespace _4GLCuadroDeMandoRevisionDeAjustesGarum.Model
 {
     public class IdEstacionRequest
     {
