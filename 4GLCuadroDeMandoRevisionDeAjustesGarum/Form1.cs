@@ -33,7 +33,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
         private WebClient webClient;
         private string ficherodescarga;
         private int FicheroVersionDownload;
-        private List<FicheroGarumResponse> ficherosResponse;
+        private List<EstudioAjusteResponse>  estudioAjusteResponses;
         private int modo = 0;
         private int estadoParpadeo = 0;
 
@@ -147,7 +147,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
         }
        
 
-        private async Task ObtenerFicherosGarumEstacion()
+        private async Task ObtenerAjustesGarumEstacion()
         {
             try
             {
@@ -167,7 +167,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
 
                 TxtEsOffline.Texts = (Convert.ToInt32(TxtTotalES.Texts) - Convert.ToInt32(TxtEsOnline.Texts)).ToString();
 
-                Respuesta = await Servicio.GetficherosGarumCuadrodeMando(urlApi, "/api", "/getficherosGarumCuadrodeMando/", "bearer", tokenAPI);
+                Respuesta = await Servicio.GetAjustesGarumCuadrodeMando(urlApi, "/api", "/listadoestudioajustes", "bearer", tokenAPI,Convert.ToDateTime(TxtFechaInicial.Texts), Convert.ToDateTime(TxtFechaFinal.Texts));
 
                 if (!Respuesta.IsSuccess)
                 {
@@ -181,31 +181,35 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
                     int contadorEstacionesConProblemas = 0;
                     DateTime fechaEstudio = Convert.ToDateTime(DateTime.Now.ToShortDateString());
 
-                    ficherosResponse = (List<FicheroGarumResponse>)Respuesta.Result;
+                    estudioAjusteResponses = (List<EstudioAjusteResponse>)Respuesta.Result;
                     // voy a contar registros de estaciones agrupados por estacion
 
-                    ficherosResponse.Count();
-                    TxtEsconProblemas.Texts = ficherosResponse.Where(g => g.Fecha_Estudio > fechaEstudio && !g.Nombre_Fichero.ToString().ToLower().Contains("@0@")).ToList().GroupBy(e => e.Nombre_Estacion).Count().ToString();
+                    estudioAjusteResponses.Count();
+                    TxtEsconProblemas.Texts = estudioAjusteResponses.Where(f=>f.Diferencia!=0).GroupBy(e => e.Nombre_Estacion).Count().ToString();
 
-                    var listadoEStacionesConProblemas = ficherosResponse.Where(g => g.Fecha_Estudio > fechaEstudio && !g.Nombre_Fichero.ToString().ToLower().Contains("@0@")).ToList().GroupBy(e => e.Nombre_Estacion).ToList();
-
-
+                    var listadoEStacionesConProblemas = estudioAjusteResponses.GroupBy(e => e.Nombre_Estacion).ToList();
 
 
-                    var resultados1 = ficherosResponse.OrderBy(e => e.Estacion)
-                              .Where(g => g.Fecha_Estudio > fechaEstudio && !g.Nombre_Fichero.ToString().ToLower().Contains("@0@")).ToList();
 
+
+                    var resultados1 = estudioAjusteResponses.Where(f => f.Diferencia != 0).OrderBy(e => e.Estacion).ToList();
+                             
 
 
                     var resultado1 = from p in resultados1 // todas las eess
-                                     orderby p.Estacionid, p.Nombre_Fichero
+                                     orderby p.Nombre_Estacion
+
                                      select new
                                      {
-                                         p.Fecha_Estudio,
-                                         p.Estacionid,
+                                         p.Fecha_estudio,
+                                         p.Fecha_Ajustes,
                                          p.Nombre_Estacion,
-                                         p.Nombre_Fichero,
-                                         p.TPV,
+                                         p.surtidor,
+                                         p.Manguera,
+                                         p.Tipo_contador_inicial,
+                                         p.LitrosLec,
+                                         p.Litrosvta,
+                                         p.Diferencia,
 
                                      };
 
@@ -213,32 +217,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
                     DgvFichero.DataSource = resultado1.ToList();
                     refrescaGrid();
 
-                    //foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
-                    //{
-                    //    if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
-                    //    {
-                    //        itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
-                    //       // contadorEstacionesConProblemas++;
-                    //    }
-
-                    //    else
-                    //    {
-                    //        if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
-                    //        {
-                    //            itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#fdccd4");
-                    //        }
-                    //        else
-                    //        {
-                    //            itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ffd971");
-                    //        }
-
-
-                    //    }
-
-                    //    // comprobamos si tiene la hora de la celda ultimamedion
-
-                    //}
-
+                   
 
 
 
@@ -256,22 +235,28 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
 
 
             DgvFichero.DataSource = "";
-            DgvFichero.DataSource = ficherosResponse.Where(x => x.Estacionid.ToLower().Contains(textoabuscar) || x.Nombre_Fichero.ToString().ToLower().Contains(textoabuscar) || x.Nombre_Estacion.ToString().ToLower().Contains(textoabuscar)).ToList();
+            DgvFichero.DataSource = estudioAjusteResponses.Where(x => x.Nombre_Estacion.ToLower().Contains(textoabuscar)).ToList();
 
-            DateTime fechaEstudio = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            var resultados1 = ficherosResponse.Where(x => !x.Nombre_Fichero.ToString().ToLower().Contains("@0@") && (x.Estacionid.ToLower().Contains(textoabuscar) || x.Nombre_Fichero.ToString().ToLower().Contains(textoabuscar) || x.Nombre_Estacion.ToString().ToLower().Contains(textoabuscar)));
+            var resultados1 = estudioAjusteResponses.Where(x => x.Nombre_Estacion.ToLower().Contains(textoabuscar) && x.Diferencia!=0);
 
             var resultado1 = from p in resultados1 // todas las eess
-                             orderby p.Estacionid, p.Nombre_Fichero
+                             orderby p.Nombre_Estacion
+
                              select new
                              {
-                                 p.Fecha_Estudio,
-                                 p.Estacionid,
+                                 p.Fecha_estudio,
+                                 p.Fecha_Ajustes,
                                  p.Nombre_Estacion,
-                                 p.Nombre_Fichero,
-                                 p.TPV,
+                                 p.surtidor,
+                                 p.Manguera,
+                                 p.Tipo_contador_inicial,
+                                 p.LitrosLec,
+                                 p.Litrosvta,
+                                 p.Diferencia,
 
                              };
+
+         
 
 
 
@@ -299,7 +284,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
             Escribelog("Datos obtenidos correctamente.");
             Escribelog("Actualizando vistas.");
             Escribelog("Vistas Actualizadas.");
-            ObtenerFicherosGarumEstacion();
+            ObtenerAjustesGarumEstacion();
             TmrConsulta.Enabled = false;
             TmrRefresco.Enabled = true;
         }
@@ -352,6 +337,8 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            TxtFechaInicial.Texts = DateTime.Now.AddDays(-1).ToShortDateString() + " " + "07:00:00";
+            TxtFechaFinal.Texts = DateTime.Now.ToString();
             TxtMail.Texts = "xad@4glsp.com";
             TxtUrl2.Texts = "https://2.139.147.209:1604";
             urlApi = "https://2.139.147.209:1604";
@@ -396,11 +383,11 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
             {
 
                 ObtenerToken();
-                ObtenerFicherosGarumEstacion();
+                ObtenerAjustesGarumEstacion();
             }
             else
             {
-                ObtenerFicherosGarumEstacion();
+                ObtenerAjustesGarumEstacion();
             }
 
         }
@@ -410,11 +397,11 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
             if (string.IsNullOrEmpty(TxtToken.Texts))
             {
                 ObtenerToken();
-                ObtenerFicherosGarumEstacion();
+                ObtenerAjustesGarumEstacion();
             }
             else
             {
-                ObtenerFicherosGarumEstacion();
+                ObtenerAjustesGarumEstacion();
             }
         }
 
@@ -424,25 +411,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
             BusquedaTotal(textoabuscar);
         }
 
-        private void SwOscuro_Click(object sender, EventArgs e)
-        {
-
-            switch (SwOscuro.Value)
-            {
-                case true:
-                    modo = 1;
-
-                    break;
-                case false:
-                    modo = 0;
-                    break;
-
-                default:
-                    break;
-            }
-            EstablecerModo(modo);
-            refrescaGrid();
-        }
+     
 
         private void EstablecerModo(int modo)
         {
@@ -697,25 +666,8 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
         {
             foreach (DataGridViewRow itemFechaUltimaVenta in DgvFichero.Rows)
             {
-                if (itemFechaUltimaVenta.Cells[4].Value.ToString().Contains("TPV2"))
-                {
-                    if (modo == 1)
-                    {
-
-                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#444444");
-                        itemFechaUltimaVenta.DefaultCellStyle.ForeColor = Color.LightGoldenrodYellow;
-                    }
-                    else
-                    {
-                        itemFechaUltimaVenta.DefaultCellStyle.BackColor = Color.LightGoldenrodYellow;
-                        itemFechaUltimaVenta.DefaultCellStyle.ForeColor = Color.Black;
-
-                    }
-                }
-
-                else
-                {
-                    if (itemFechaUltimaVenta.Cells[3].Value.ToString().ToLower().Contains("export"))
+              
+                    if (!itemFechaUltimaVenta.Cells[8].Value.ToString().ToLower().Contains("-"))
                     {
                         if (modo == 1)
                         {
@@ -734,7 +686,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
                     {
                         if (modo == 1) // naranja
                         {
-                            // itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#ffd971");
+                            
                             itemFechaUltimaVenta.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#444444");
                             itemFechaUltimaVenta.DefaultCellStyle.ForeColor = Color.Orange;
                         }
@@ -747,7 +699,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
                     }
 
 
-                }
+                
 
                 // comprobamos si tiene la hora de la celda ultimamedion
 
@@ -787,7 +739,24 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
             }
 
         }
+         private void SwOscuro_Click(object sender, EventArgs e)
+        {
+             switch (SwOscuro.Value)
+            {
+                case true:
+                    modo = 1;
 
+                    break;
+                case false:
+                    modo = 0;
+                    break;
+
+                default:
+                    break;
+            }
+            EstablecerModo(modo);
+            refrescaGrid();
+        }
 
         #region ActualizaciondelaapliacioControlDeOperacionesAutomat
 
@@ -989,10 +958,13 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
 
 
 
+
+
         #endregion
 
+      
 
-
+       
     }
 }
      

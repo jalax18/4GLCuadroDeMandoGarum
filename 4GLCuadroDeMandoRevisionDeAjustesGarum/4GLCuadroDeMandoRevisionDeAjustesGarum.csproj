@@ -72,6 +72,7 @@
     <Compile Include="Model\EmailRequest.cs" />
     <Compile Include="Model\EstacionRequest.cs" />
     <Compile Include="Model\EstacionResponse.cs" />
+    <Compile Include="Model\EstudioAjusteResponse.cs" />
     <Compile Include="Model\FechaRequest.cs" />
     <Compile Include="Model\FicheroGarumResponse.cs" />
     <Compile Include="Model\IdEstacionRequest.cs" />

@@ -102,10 +102,14 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum.Service
             }
         }
 
-        public async Task<Response> GetficherosGarumCuadrodeMando(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken)
+        public async Task<Response> GetAjustesGarumCuadrodeMando(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken,DateTime fini,DateTime ffin)
         {
             try
             {
+
+                string ffini = @"/"+fini.Year.ToString() + "-" + fini.Month.ToString().PadLeft(2, '0') + "-" + fini.Day.ToString().PadLeft(2, '0') + " " + fini.Hour.ToString().PadLeft(2, '0') + ":" + fini.Minute.ToString().PadLeft(2, '0') + ":" + fini.Second.ToString().PadLeft(2, '0');
+                string fffin = @"/" + ffin.Year.ToString() + "-" + ffin.Month.ToString().PadLeft(2, '0') + "-" + ffin.Day.ToString().PadLeft(2, '0') + " " + ffin.Hour.ToString().PadLeft(2, '0') + ":" + ffin.Minute.ToString().PadLeft(2, '0') + ":" + ffin.Second.ToString().PadLeft(2, '0');
+
                 //  string requestString = JsonConvert.SerializeObject(request);
                 //   StringContent content = new StringContent(requestString, Encoding.UTF8, "application/json");
                 HttpClient client = new HttpClient
@@ -113,7 +117,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum.Service
                     BaseAddress = new Uri(urlBase)
                 };
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
-                string url = $"{servicePrefix}{controller}";
+                string url = $"{servicePrefix}{controller}{ffini}{fffin}";
                 HttpResponseMessage response = await client.GetAsync(url);
                 string result = await response.Content.ReadAsStringAsync();
 
@@ -125,11 +129,11 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum.Service
                         Message = result,
                     };
                 }
-                List<FicheroGarumResponse> ficherosGarumResponse = JsonConvert.DeserializeObject<List<FicheroGarumResponse>>(result);
+                List<EstudioAjusteResponse> estudioAjusteResponses = JsonConvert.DeserializeObject<List<EstudioAjusteResponse>>(result);
                 return new Response
                 {
                     IsSuccess = true,
-                    Result = ficherosGarumResponse
+                    Result = estudioAjusteResponses
                 };
             }
             catch (Exception ex)
