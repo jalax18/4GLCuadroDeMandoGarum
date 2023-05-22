@@ -90,7 +90,6 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvFichero)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -308,7 +307,6 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.TxtFechaFinal);
             this.groupBox1.Controls.Add(this.label20);
             this.groupBox1.Controls.Add(this.TxtFechaInicial);
@@ -954,16 +952,6 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(695, 181);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 210;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1049,7 +1037,6 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.Button button1;
     }
 }
 

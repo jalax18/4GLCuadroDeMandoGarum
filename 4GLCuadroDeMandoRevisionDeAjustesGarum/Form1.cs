@@ -256,10 +256,10 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
 
                              };
 
-         
 
 
 
+            DgvFichero.DataSource = null;
             DgvFichero.DataSource = resultado1.ToList();
 
             refrescaGrid();
@@ -345,9 +345,9 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
             //   TxtUrl.Text = "https://localhost:443";
             try
             {
-                if (!Directory.Exists(@"C:\GARUMTOOLS\4GLCuadrodeMando-RevisionFicherosGarum\Descargas"))
+                if (!Directory.Exists(@"C:\GARUMTOOLS\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas"))
                 {
-                    Directory.CreateDirectory(@"C:\GARUMTOOLS\4GLCuadrodeMando-RevisionFicherosGarum\Descargas");
+                    Directory.CreateDirectory(@"C:\GARUMTOOLS\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas");
                 }
             }
             catch (Exception ex)
@@ -735,7 +735,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
 
             {
                 TxtHoraRevVersion.Texts = DateTime.Now.AddMinutes(60).ToString();
-                DescargarVersionApp4GLCMRevisiondeFicherosTxt();
+                DescargarVersionApp4GLCMRevisionDeAjustesGarumTxt();
             }
 
         }
@@ -760,49 +760,49 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
 
         #region ActualizaciondelaapliacioControlDeOperacionesAutomat
 
-        private void DescargarVersionApp4GLCMRevisiondeFicherosTxt()
+        private void DescargarVersionApp4GLCMRevisionDeAjustesGarumTxt()
         {
-            BorrarFicheroVersionApp4GLCMRevisiondeFicherostxtyZip();
+            BorrarFicheroVersionApp4GLCMRevisionDeAjustesGarumtxtyZip();
 
             try
             {
-                Escribelog("DescargarVersionApp4GLCMRevisiondeFicherosTxt | Descargar fichero VersionApp4GLCMRevisiondeFicheros.txt");
-                ficherodescarga = TxtUrl2.Texts + @"/Descargas/VersionApp4GLCMRevisiondeFicheros.txt";
-                webClient.DownloadFileAsync(new Uri(ficherodescarga), @"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\VersionApp4GLCMRevisiondeFicheros.txt");
+                Escribelog("DescargarVersionApp4GLCMRevisionDeAjustesGarumTxt | Descargar fichero VersionApp4GLCMRevisionDeAjustesGarum.txt");
+                ficherodescarga = TxtUrl2.Texts + @"/Descargas/VersionApp4GLCMRevisionDeAjustesGarum.txt";
+                webClient.DownloadFileAsync(new Uri(ficherodescarga), @"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\VersionApp4GLCMRevisionDeAjustesGarum.txt");
 
             }
             catch (Exception e)
             {
-                Escribelog("DescargarVersionApp4GLCMRevisiondeFicherosTxt | Error al descargar Fichero VersionApp4GLCMRevisiondeFicheros.txt " + e.Message.ToString());
+                Escribelog("DescargarVersionApp4GLCMRevisionDeAjustesGarumTxt | Error al descargar Fichero DescargarVersionApp4GLCMRevisionDeAjustesGarum.txt " + e.Message.ToString());
             }
         }
 
-        private void BorrarFicheroVersionApp4GLCMRevisiondeFicherostxtyZip()
+        private void BorrarFicheroVersionApp4GLCMRevisionDeAjustesGarumtxtyZip()
         {
-            Escribelog("BorrarFicheroVersionApp4GLCMRevisiondeFicherostxtyZip | Procedemos a borrar ficheros antiguos descargados VersionApp4GLCMRevisiondeFicheros.txt y VersionApp4GLCMRevisiondeFicheros.zip ");
-            if (File.Exists(@"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\VersionApp4GLCMRevisiondeFicheros.txt"))
+            Escribelog("BorrarFicheroVersionApp4GLCMRevisionDeAjustesGarumtxtyZip | Procedemos a borrar ficheros antiguos descargados VersionApp4GLCMRevisionDeAjustesGarum.txt y VersionApp4GLCMRevisionDeAjustesGarum.zip ");
+            if (File.Exists(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\VersionApp4GLCMRevisionDeAjustesGarum.txt"))
             {
                 try
                 {
-                    File.Delete(@"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\VersionApp4GLCMRevisiondeFicheros.txt");
-                    Escribelog(@"BorrarFicheroVersionApp4GLCMRevisiondeFicherostxtyZip | Borrado Fichero c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\VersionApp4GLCMRevisiondeFicheros.txt");
+                    File.Delete(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\VersionApp4GLCMRevisionDeAjustesGarum.txt");
+                    Escribelog(@"BorrarFicheroVersionApp4GLCMRevisionDeAjustesGarumtxtyZip | Borrado Fichero c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\VersionApp4GLCMRevisionDeAjustesGarum.txt");
 
                 }
                 catch (Exception ex)
                 {
-                    Escribelog(@"BorrarFicheroVersionApp4GLCMRevisiondeFicherostxtyZip | Error al borrar el Fichero c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\VersionApp4GLCMRevisiondeFicheros.txt " + ex.ToString());
+                    Escribelog(@"BorrarFicheroVersionApp4GLCMRevisionDeAjustesGarumtxtyZip | Error al borrar el Fichero c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\VersionApp4GLCMRevisionDeAjustesGarum.txt " + ex.ToString());
 
 
                 }
                 try
                 {
-                    File.Delete(@"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\VersionApp4GLCMRevisiondeFicheros.zip");
-                    Escribelog(@"BorrarFicheroVersionApp4GLCMRevisiondeFicherostxtyZip | Borrado Fichero c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\VersionApp4GLCMRevisiondeFicheros.zip");
+                    File.Delete(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\VersionApp4GLCMRevisionDeAjustesGarum.zip");
+                    Escribelog(@"BorrarFicheroVersionApp4GLCMRevisionDeAjustesGarumtxtyZip | Borrado Fichero c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\VersionApp4GLCMRevisionDeAjustesGarum.zip");
 
                 }
                 catch (Exception ex)
                 {
-                    Escribelog(@"BorrarFicheroVersionApp4GLCMRevisiondeFicherostxtyZip | Error al borrar el Fichero  c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\VersionApp4GLCMRevisiondeFicheros.zip " + ex.ToString());
+                    Escribelog(@"BorrarFicheroVersionApp4GLCMRevisionDeAjustesGarumtxtyZip | Error al borrar el Fichero  c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\VersionApp4GLCMRevisionDeAjustesGarum.zip " + ex.ToString());
 
 
                 }
@@ -819,7 +819,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
             descargaractualizacionApp = false;
             try
             {
-                if (File.Exists(@"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\descargas\VersionApp4GLCMRevisiondeFicheros.txt"))
+                if (File.Exists(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\descargas\VersionApp4GLCMRevisionDeAjustesGarum.txt"))
 
                 {
 
@@ -827,7 +827,7 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
 
                     // Read the file and display it line by line.  
                     System.IO.StreamReader file =
-                        new System.IO.StreamReader(@"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\descargas\VersionApp4GLCMRevisiondeFicheros.txt");
+                        new System.IO.StreamReader(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\descargas\VersionApp4GLCMRevisionDeAjustesGarum.txt");
                     line = file.ReadLine();
                     if (!string.IsNullOrEmpty(line))
                     {
@@ -875,9 +875,9 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
         {
             try
             {
-                Escribelog("DescargarActualizacionAp| Descargar fichero VersionApp4GLCMRevisiondeFicheros.zip");
-                ficherodescarga = TxtUrl2.Texts + @"/Descargas/VersionApp4GLCMRevisiondeFicheros.zip";
-                webClient.DownloadFileAsync(new Uri(ficherodescarga), @"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\VersionApp4GLCMRevisiondeFicheros.zip");
+                Escribelog("DescargarActualizacionAp| Descargar fichero VersionApp4GLCMRevisionDeAjustesGarum.zip");
+                ficherodescarga = TxtUrl2.Texts + @"/Descargas/VersionApp4GLCMRevisionDeAjustesGarum.zip";
+                webClient.DownloadFileAsync(new Uri(ficherodescarga), @"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\VersionApp4GLCMRevisionDeAjustesGarum.zip");
 
             }
             catch (Exception e)
@@ -925,31 +925,33 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
         #endregion
         private void DescomprimirversionApp()
         {
-            if (Directory.Exists(@"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\UltimaVersionApp")) // si existe lo vacia de todo
+            if (Directory.Exists(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\UltimaVersionApp")) // si existe lo vacia de todo
             {
-                Directory.Delete(@"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\UltimaVersionApp", true);
-                Directory.CreateDirectory(@"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\UltimaVersionApp"); // lo vuelve a crear
+                Directory.Delete(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\UltimaVersionApp", true);
+                Directory.CreateDirectory(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\UltimaVersionApp"); // lo vuelve a crear
 
             }
             else
             {
-                Directory.CreateDirectory(@"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\UltimaVersionApp"); //si no existe lo crea
+                Directory.CreateDirectory(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\UltimaVersionApp"); //si no existe lo crea
             }
 
-            if (Directory.Exists(@"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\UltimaVersionApp")) // una vez que esta vacio descomprimimos en el
+            if (Directory.Exists(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\UltimaVersionApp")) // una vez que esta vacio descomprimimos en el
             {
                 try
                 {
-                    ZipFile.ExtractToDirectory(@"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\VersionApp4GLCMRevisiondeFicheros.zip", @"c:\garumtools\4GLCuadrodeMando-RevisionFicherosGarum\Descargas\UltimaVersionApp");
-                    Escribelog("DescomprimirversionApp  | Descomprimimos la nueva version de VersionApp4GLCMRevisiondeFicheros y la actualizamos");
+                    ZipFile.ExtractToDirectory(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\VersionApp4GLCMRevisionDeAjustesGarum.zip", @"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\UltimaVersionApp");
+
+                    
+                    Escribelog("DescomprimirversionApp  | Descomprimimos la nueva version de VersionApp4GLCMRevisionDeAjustesGarum y la actualizamos");
                     // aqui llamamos al bat qeu hace copia de seguridad y actualiza version
-                    System.Diagnostics.Process.Start(@"C:\GARUMTOOLS\4GLCuadrodeMando-RevisionFicherosGarum\4GLActualizadorCuadroDeMandoRevisionDeFicherosGarum.exe");
+                    System.Diagnostics.Process.Start(@"C:\GARUMTOOLS\4GLCuadrodeMando-RevisionDeAjustesGarum\4GLActualizadorCuadroDeMandoRevisionDeAjustesGarum.exe");
 
                 }
                 catch (Exception ex)
                 {
 
-                    Escribelog("DescomprimirversionApp  | Error al descomprimir la nueva version de VersionApp4GLCMRevisiondeFicheros " + ex.ToString());
+                    Escribelog("DescomprimirversionApp  | Error al descomprimir la nueva version de VersionApp4GLCMRevisionDeAjustesGarum " + ex.ToString());
 
                 }
 
@@ -967,6 +969,75 @@ namespace _4GLCuadroDeMandoRevisionDeAjustesGarum
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Process[] LocalByName = Process.GetProcessesByName("4GLCuadroDeMandoRevisionDeFicherosGarum");
+
+            foreach (Process proc in LocalByName)
+            {
+
+                  proc.Kill();
+
+            }
+
+            string directorioorigen = @"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum";
+            string directoriobackup = @"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\Backup" + DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
+            string directoriodedescarga = @"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\Descargas\UltimaVersionApp\";
+            if (!Directory.Exists(directoriobackup)) // si no existe lo creo y copio el contenido de todo el directorio de control incidencias
+            {
+                Directory.CreateDirectory(directoriobackup);
+            }
+
+            if (Directory.Exists(directorioorigen) && Directory.Exists(directoriodedescarga)) //compruebo qeu existen el directorio de origen y el de descarga 
+            {
+
+                string[] fileEntries = Directory.GetFiles(directorioorigen);
+
+                foreach (string fileName in fileEntries)
+                {
+                    string ficherosource = fileName;
+                    string ficherodestino = directoriobackup + @"/" + fileName.Replace(@"\", "").Substring(51, fileName.Replace(@"\", "").Length - 51);
+                    try
+                    {
+                        File.Copy(ficherosource, ficherodestino);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
+
+                }
+                string[] fileEntries1 = Directory.GetFiles(directoriodedescarga);
+
+                foreach (string fileName in fileEntries1)
+                {
+                    string ficherosource = fileName;
+                    string ficherodestino = directorioorigen + @"\" + fileName.Replace(@"\", "").Substring(76, fileName.Replace(@"\", "").Length - 76);
+                    try
+                    {
+                        File.Copy(ficherosource, ficherodestino, true);
+                    }
+                    catch (Exception)
+                    {
+
+                    }
+
+
+                }
+
+            }
+
+            try
+            {
+                Thread.Sleep(5000);
+                System.Diagnostics.Process.Start(@"c:\garumtools\4GLCuadrodeMando-RevisionDeAjustesGarum\4GLCuadroDeMandoRevisionDeAjustesGarum.exe");
+
+
+            }
+            catch (Exception)
+            {
+
+
+            }
 
         }
     }
