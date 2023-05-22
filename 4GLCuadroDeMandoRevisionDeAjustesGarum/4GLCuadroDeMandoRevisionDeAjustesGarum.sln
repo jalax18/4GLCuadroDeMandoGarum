@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4GLCuadroDeMandoRevisionDeA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4GLActualizadorCuadroDeMandoRevisionDeAjustesGarum", "..\4GLActualizadorCuadroDeMandoRevisionDeAjustesGarum\4GLActualizadorCuadroDeMandoRevisionDeAjustesGarum.csproj", "{A75F7F0A-12E9-457C-B5A6-D910994FCAD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrancaCuadrosdeMando", "..\ArrancaCuadrosdeMando\ArrancaCuadrosdeMando.csproj", "{3C0AD46A-221E-4318-B7D2-2D15CED73DFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A75F7F0A-12E9-457C-B5A6-D910994FCAD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A75F7F0A-12E9-457C-B5A6-D910994FCAD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A75F7F0A-12E9-457C-B5A6-D910994FCAD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C0AD46A-221E-4318-B7D2-2D15CED73DFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C0AD46A-221E-4318-B7D2-2D15CED73DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C0AD46A-221E-4318-B7D2-2D15CED73DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C0AD46A-221E-4318-B7D2-2D15CED73DFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
